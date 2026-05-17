@@ -1,0 +1,37 @@
+# ====================================================================
+# Git管理から除外する大容量ファイル・データ・重み（GitHubに上げない）
+# ====================================================================
+
+# 1. 脳転移巣データセット・医療画像ZIPファイル
+*.zip
+my_yale_data/
+nnUNet/
+UCSF-BMSR-benchmarks/
+
+# 2. 各実験条件の学習済みモデル（重みファイル）の出力フォルダ
+trained_models_l+c_150/
+trained_models_l+Lmask_150/
+trained_models_masked_loss_l+c+Lmask_150_λ10/
+trained_models_masked_loss_l+c+Lmask_150_λ15/
+trained_models_masked_loss_l+c+Lmask_150_λ5/
+trained_models_masked_loss_l+c+Lmask_200/
+trained_models_masked_loss_+Pix2Pix/
+PretrainedNetworksforMetastasesPaper.tar.gz
+
+# 3. nnUNetの出力・推論結果のローカルキャッシュなど
+nnUNet_results/
+generated_images_pix2pix/
+inference_results_lora_150/
+
+# 4. 個別の推論結果画像（EPS）
+# 基本的に直下のEPSはコードの邪魔になるので除外します
+*.eps
+
+# ====================================================================
+# 例外設定：GitHubで管理・バックアップしたいもの
+# ====================================================================
+
+# 論文用の清書された図表フォルダ（paper_figures）だけは、
+# 容量が大きくない限り、コードと一緒に管理しておくと執筆時に便利です。
+!paper_figures/
+!paper_figures/**
